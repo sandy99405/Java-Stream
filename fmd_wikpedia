@@ -1,0 +1,11 @@
+ private boolean hasWikipediaEntry()
+  {
+    final String wikipediaLink = mMapObject.getMetadata(Metadata.MetadataType.FMD_WIKIPEDIA);
+    final String description = mMapObject.getDescription();
+    return !TextUtils.isEmpty(wikipediaLink) || !TextUtils.isEmpty(description);
+  }
+
+  private void updateWikipediaView()
+  {
+    updateViewFragment(PlacePageWikipediaFragment.class, WIKIPEDIA_FRAGMENT_TAG, R.id.place_page_wikipedia_fragment, hasWikipediaEntry());
+  }
